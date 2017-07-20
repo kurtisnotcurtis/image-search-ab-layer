@@ -1,7 +1,12 @@
 const express = require("express");
-const mongo = require("mongodb");
-const port = 3000;
-const app = express();
+const path = require("path");
+const fs = require("fs");
+const mongodb = require("mongodb");
+const mongoClient = mongodb.MongoClient();
+
+const port = process.env.PORT || 3000;
+
+var app = express();
 
 
 
