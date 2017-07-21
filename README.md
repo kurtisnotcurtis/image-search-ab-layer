@@ -1,15 +1,13 @@
-Welcome to the Glitch BETA
-=========================
+Image Search Abstraction Layer
+==============================
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
-
-**Glitch** is the friendly commmunity where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+This is the fifth API project in FreeCodeCamp's Backend Web Development certification.
 
 Find out more [about Glitch](https://glitch.com/about).
 
 
-Your Project
-------------
+Usage
+-----
 
 On the front-end,
 - edit `public/client.js`, `public/style.css` and `views/index.html`
