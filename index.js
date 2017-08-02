@@ -16,5 +16,13 @@ mongoClient.connect(mongoURL, function (err, db) {
   mongoDB = db;
 });
 
+app.get("/api/imagesearch/:image", function (req, res) {
+  res.end("goodbye");
+});
+
+app.get("/api/latest/imagesearch", function (req, res) {
+  //res.JSON("goodbye");
+});
+
 
 app.listen(port);
