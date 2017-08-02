@@ -17,10 +17,12 @@ mongoClient.connect(mongoURL, function (err, db) {
 });
 
 app.get("/api/imagesearch/:image", function (req, res) {
+  // Take image param, save it to the db, and use google images API to return search results
   res.end("goodbye");
 });
 
 app.get("/api/latest/imagesearch", function (req, res) {
+  // Display the xth most recent image searches performed from the db
   //res.JSON("goodbye");
 });
 
