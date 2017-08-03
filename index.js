@@ -23,7 +23,10 @@ mongoClient.connect(mongoURL, function (err, db) {
 app.get("/api/imagesearch/:image", function (req, res) {
   // Take image param, save it to the db, and use google images API to return search results
   var img = req.params.image;
-  request("https://www.googleapis.com/customsearch/v1?key=" + pAPIkey + "&cx=" + cx + "&searchType=image" + "&q=" + img, function (err, response, body) {
+  var pages = req.query.page;
+  var pagestr = !isNaN(parseInt(pages, 10)) ? "&start=" + parseInt(pages, 10) : "";
+  console.log("Pagestr:", pagestr, typeof pagestr);
+  request("https://www.googleapis.com/customsearch/v1?key=" + pAPIkey + "&cx=" + cx + "&searchType=image" + "&q=" + img + pagestr, function (err, response, body) {
     if (err) console.log('Error:', err);
     var date = new Date();
     mongoDB.collection("images").insertOne({query: img, time: date.toString()}, function (err, r) {
