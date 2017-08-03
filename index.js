@@ -30,10 +30,9 @@ app.get("/api/imagesearch/:image", imgSearch);
 
 function imgSearch(req, res) {
   var query = req.params.image || req.query.query; // Capture the query coming either as a URL param or URL query
-  var pages = req.query.offset;
+  var pages = req.query.offset || "no-offset-provided";
   var pagestr = !isNaN(+pages) ? "&start=" + (+pages * 10) : ""; // Using unary '+' operator to convert to a number, reads easier than ParseInt()
   var googlURLPrefix = "https://www.googleapis.com/customsearch/v1?key=";
-  console.log("Query:", query, "Pagestr:", pagestr);
   
   request(googlURLPrefix + pAPIkey + "&cx=" + cx + "&searchType=image" + "&q=" + query + pagestr, function (err, response, body) {
     if (err) console.log('Error:', err);
@@ -43,7 +42,7 @@ function imgSearch(req, res) {
       console.log("Documents inserted:", r.insertedCount)
     });
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    res.json(JSON.parse(body.items));
+    res.json(JSON.parse(body));
   });
 }
 
