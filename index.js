@@ -20,6 +20,10 @@ mongoClient.connect(mongoURL, function (err, db) {
   mongoDB = db;
 });
 
+app.get("/", function (req, res) {
+  res.render(path.join("views", "index"));
+});
+
 app.get("/api/imagesearch/:image", function (req, res) {
   // Take image param, save it to the db, and use google images API to return search results
   var img = req.params.image;
@@ -41,8 +45,10 @@ app.get("/api/imagesearch/:image", function (req, res) {
 
 app.get("/api/latest/imagesearch", function (req, res) {
   // Display the xth most recent image searches performed from the db
-  mongoDB.collection("images").find({}).
-  //res.JSON("goodbye");
+  mongoDB.collection("images").find({}).limit(10).toArray(function (err, items) {
+    console.log(items);
+    res.json(items);
+  });
 });
 
 
