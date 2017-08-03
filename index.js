@@ -23,8 +23,8 @@ mongoClient.connect(mongoURL, function (err, db) {
 app.get("/api/imagesearch/:image", function (req, res) {
   // Take image param, save it to the db, and use google images API to return search results
   var img = req.params.image;
-  request("https://www.googleapis.com/customsearch/v1?key=" + pAPIkey + "&cx=" + cx + "&q=" + img, function (err, response, body) {
-    console.log('error:', err);
+  request("https://www.googleapis.com/customsearch/v1?key=" + pAPIkey + "&cx=" + cx + "&searchType=image" + "&q=" + img, function (err, response, body) {
+    if (err) console.log('error:', err);
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     console.log('body:', body);
     res.end(response);
