@@ -27,7 +27,8 @@ app.get("/api/imagesearch/:image", function (req, res) {
     if (err) console.log('error:', err);
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     console.log('body:', body);
-    res.end(response);
+    
+    res.end(body);
   });
   
 });
