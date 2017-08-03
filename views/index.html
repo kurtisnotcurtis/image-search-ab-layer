@@ -23,10 +23,10 @@
       <p>Note that you can also append:</p>
       <p>?offset=<em>PageNumber</em></p>
       <p>to display results on subsequent Google search pages.</p>
-      <form>
-        <input type="search" maxlength="100" placeholder="Image to search..." required autofocus>
-        <input type="number" min="2" max="10" step="1">
-        <button type="submit">Submit</button>
+      <form action="/api/imagesearch/" method="GET">
+        <label for="query">Query: <input name="query" type="search" maxlength="100" placeholder="Image to search..." required autofocus></label>
+        <label for="offset">Page Offset (Optional):<input name="offset" type="number" min="2" max="10" step="1" placeholder="Optional page offset"></label>
+        <input type="submit" value="Submit" />
       </form>
     </main>
 
