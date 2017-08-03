@@ -1,16 +1,7 @@
-<!-- This is a static file -->
-<!-- served from your routes in server.js -->
-
-<!-- You might want to try something fancier: -->
-<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
-<!-- pug: https://pugjs.org/ -->
-<!-- haml: http://haml.info/ -->
-<!-- hbs(handlebars): http://handlebarsjs.com/ -->
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to Glitch!</title>
+    <title>Image Search Abstraction Layer - FCC</title>
     <meta name="description" content="A cool thing made with Glitch">
     <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
     <meta charset="utf-8">
@@ -21,13 +12,17 @@
   <body>
     <header>
       <h1>
-        A Dream of the Future
+        Image Search Abstraction Layer - FCC
       </h1>
     </header>
 
     <main>
-      <p class="bold">Oh hi,</p>
-      <p>Tell me your hopes and dreams:</p>
+      <p class="bold">This is a basic webapp that allows you to search Google for images that match your search term.</p>
+      <p>Enter a search term below and press submit, or enter your query into your browser's address bar like so:</p>
+      <p>https://img-search-ab-layer.glitch.me/api/imagesearch/<em>YourQueryHere</em></p>
+      <p>Note that you can also append:</p>
+      <p>?offset=<em>PageNumber</em></p>
+      <p>to display results on subsequent Google search pages.</p>
       <form>
         <input type="text" maxlength="100" placeholder="Dreams!">
         <button type="submit">Submit</button>
@@ -37,12 +32,6 @@
         </ul>
       </section>
     </main>
-
-    <footer>
-      <a href="https://glitch.com">
-        Remix this in Glitch
-      </a>
-    </footer>
 
     <!-- Your web-app is https, so your scripts need to be too -->
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"

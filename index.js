@@ -21,7 +21,7 @@ mongoClient.connect(mongoURL, function (err, db) {
 });
 
 app.get("/", function (req, res) {
-  res.render(path.join("views", "index"));
+  res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
 app.get("/api/imagesearch/:image", function (req, res) {
